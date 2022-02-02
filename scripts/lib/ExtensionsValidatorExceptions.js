@@ -235,9 +235,7 @@ const extensionsAllowedProperties = {
       javaScriptObjectAllowedProperties: [],
     },
     AdvancedJump: {
-      gdjsAllowedProperties: [
-        'PlatformerObjectRuntimeBehavior',
-      ],
+      gdjsAllowedProperties: ['PlatformerObjectRuntimeBehavior'],
       gdjsEvtToolsAllowedProperties: [],
       runtimeSceneAllowedProperties: [],
       javaScriptObjectAllowedProperties: [],
