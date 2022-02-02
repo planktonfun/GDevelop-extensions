@@ -7108,7 +7108,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Revert configuration changes for one identifier and update the character configuration to use the most rencent ones.",
           "fullName": "Revert configuration",
           "functionType": "Action",
           "group": "",
@@ -7161,7 +7161,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Return the character property value when no change applies on it.",
           "fullName": "Setting",
           "functionType": "Expression",
           "group": "",
@@ -7214,7 +7214,7 @@
           "objectGroups": []
         },
         {
-          "description": "Return the usual maximum horizontal speed when no configuration change is applied.",
+          "description": "Return the usual maximum horizontal speed when no configuration change applies on it.",
           "fullName": "Usual maximum horizontal speed",
           "functionType": "Expression",
           "group": "",
@@ -7267,7 +7267,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Configure a character propery for a given configuration layer and move this layer on top.",
           "fullName": "Configure setting",
           "functionType": "Action",
           "group": "",
@@ -7340,7 +7340,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Configure character gravity for a given configuration layer and move this layer on top.",
           "fullName": "Configure gravity",
           "functionType": "Action",
           "group": "",
@@ -7431,7 +7431,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Configure character deceleration for a given configuration layer and move this layer on top.",
           "fullName": "Configure horizontal deceleration",
           "functionType": "Action",
           "group": "",
@@ -7522,7 +7522,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Configure character maximum speed for a given configuration layer and move this layer on top.",
           "fullName": "Configure maximum horizontal speed",
           "functionType": "Action",
           "group": "",
@@ -7613,7 +7613,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Configure character acceleration for a given configuration layer and move this layer on top.",
           "fullName": "Configure horizontal acceleration",
           "functionType": "Action",
           "group": "",
@@ -7704,7 +7704,7 @@
           "objectGroups": []
         },
         {
-          "description": "",
+          "description": "Configure character maximum falling speed for a given configuration layer and move this layer on top.",
           "fullName": "Configure maximum falling speed",
           "functionType": "Action",
           "group": "",
