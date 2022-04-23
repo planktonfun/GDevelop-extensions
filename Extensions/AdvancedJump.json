@@ -2153,6 +2153,7 @@
                       "parameters": [
                         "Object",
                         "Behavior",
+                        "\"Jump\"",
                         ""
                       ],
                       "subInstructions": []
@@ -2208,7 +2209,7 @@
                     {
                       "type": {
                         "inverted": false,
-                        "value": "AdvancedJump::WallJump::ToggleSlideSpeed"
+                        "value": "AdvancedJump::WallJump::ToggleSideSpeed"
                       },
                       "parameters": [
                         "Object",
@@ -2363,7 +2364,7 @@
                     {
                       "type": {
                         "inverted": false,
-                        "value": "AdvancedJump::WallJump::ToggleSlideSpeed"
+                        "value": "AdvancedJump::WallJump::ToggleSideSpeed"
                       },
                       "parameters": [
                         "Object",
@@ -2696,6 +2697,7 @@
                         "Object",
                         "Behavior",
                         "Object.Behavior::PropertyJumpTimeFrame()",
+                        "\"Jump\"",
                         ""
                       ],
                       "subInstructions": []
@@ -2710,6 +2712,7 @@
                       "parameters": [
                         "Object",
                         "Behavior",
+                        "\"Jump\"",
                         ""
                       ],
                       "subInstructions": []
@@ -2740,7 +2743,7 @@
                     {
                       "type": {
                         "inverted": false,
-                        "value": "AdvancedJump::WallJump::ToggleSlideSpeed"
+                        "value": "AdvancedJump::WallJump::ToggleSideSpeed"
                       },
                       "parameters": [
                         "Object",
@@ -3195,6 +3198,128 @@
                     }
                   ],
                   "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::PropertyAutomaticSliding"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "AdvancedJump::WallJump::PropertyIsWallJumping"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "\"Left\""
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "\"Right\""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::SimulateLeftKey"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    },
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "\"Left\""
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "\"Right\""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::SimulateRightKey"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    }
+                  ]
                 }
               ]
             },
@@ -3735,12 +3860,12 @@
         },
         {
           "description": "Remember that the jump key was pressed.",
-          "fullName": "Remember jump key pressed",
+          "fullName": "Remember key pressed",
           "functionType": "Action",
           "group": "Private",
           "name": "RememberJumpKeyPressed",
           "private": true,
-          "sentence": "_PARAM0_ remembers the Jump key was pressed",
+          "sentence": "_PARAM0_ remembers the _PARAM2_ key was pressed",
           "events": [
             {
               "disabled": false,
@@ -3755,7 +3880,7 @@
                   },
                   "parameters": [
                     "Object",
-                    "\"__WallJump_KeyPressed\""
+                    "\"__WallJump_KeyPressed_\" + GetArgumentAsString(\"Key\")"
                   ],
                   "subInstructions": []
                 }
@@ -3783,18 +3908,28 @@
               "optional": false,
               "supplementaryInformation": "AdvancedJump::WallJump",
               "type": "behavior"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Key",
+              "longDescription": "",
+              "name": "Key",
+              "optional": false,
+              "supplementaryInformation": "[\"Jump\",\"Left\",\"Right\"]",
+              "type": "stringWithSelector"
             }
           ],
           "objectGroups": []
         },
         {
           "description": "Forget that the jump key was pressed.",
-          "fullName": "Forget jump key pressed",
+          "fullName": "Forget key pressed",
           "functionType": "Action",
           "group": "Private",
           "name": "ForgetJumpKeyPressed",
           "private": true,
-          "sentence": "_PARAM0_ forgets the Jump key was pressed",
+          "sentence": "_PARAM0_ forgets the _PARAM2_ key was pressed",
           "events": [
             {
               "disabled": false,
@@ -3809,7 +3944,7 @@
                   },
                   "parameters": [
                     "Object",
-                    "\"__WallJump_KeyPressed\""
+                    "\"__WallJump_KeyPressed_\" + GetArgumentAsString(\"Key\")"
                   ],
                   "subInstructions": []
                 }
@@ -3837,18 +3972,28 @@
               "optional": false,
               "supplementaryInformation": "AdvancedJump::WallJump",
               "type": "behavior"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "",
+              "longDescription": "",
+              "name": "Key",
+              "optional": false,
+              "supplementaryInformation": "[\"Jump\",\"Left\",\"Right\"]",
+              "type": "stringWithSelector"
             }
           ],
           "objectGroups": []
         },
         {
           "description": "Check if the key was pressed within the time frame.",
-          "fullName": "Remember jump key pressed",
+          "fullName": "Remember key pressed",
           "functionType": "Condition",
           "group": "Private",
           "name": "WasJumpKeyPressed",
           "private": true,
-          "sentence": "_PARAM0_ remembers jump key was pressed within _PARAM2_ seconds",
+          "sentence": "_PARAM0_ remembers _PARAM3_ key was pressed within _PARAM2_ seconds",
           "events": [
             {
               "disabled": false,
@@ -3881,7 +4026,7 @@
                   },
                   "parameters": [
                     "Object",
-                    "\"__WallJump_KeyPressed\"",
+                    "\"__WallJump_KeyPressed_\" + GetArgumentAsString(\"Key\")",
                     "<=",
                     "GetArgumentAsNumber(\"TimeFrame\")"
                   ],
@@ -3933,18 +4078,28 @@
               "optional": false,
               "supplementaryInformation": "",
               "type": "expression"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "",
+              "longDescription": "",
+              "name": "Key",
+              "optional": false,
+              "supplementaryInformation": "[\"Jump\",\"Left\",\"Right\"]",
+              "type": "stringWithSelector"
             }
           ],
           "objectGroups": []
         },
         {
-          "description": "Enable slide speed.",
-          "fullName": "Toggle slide speed",
+          "description": "Enable side speed.",
+          "fullName": "Toggle side speed",
           "functionType": "Action",
           "group": "Private",
-          "name": "ToggleSlideSpeed",
+          "name": "ToggleSideSpeed",
           "private": true,
-          "sentence": "Enable slide speed for _PARAM0_: _PARAM2_",
+          "sentence": "Enable side speed for _PARAM0_: _PARAM2_",
           "events": [
             {
               "disabled": false,
@@ -3972,7 +4127,7 @@
                     "value": "GetArgumentAsBoolean"
                   },
                   "parameters": [
-                    "\"EnableSlideSpeed\""
+                    "\"EnableSideSpeed\""
                   ],
                   "subInstructions": []
                 }
@@ -4059,7 +4214,7 @@
                     "value": "GetArgumentAsBoolean"
                   },
                   "parameters": [
-                    "\"EnableSlideSpeed\""
+                    "\"EnableSideSpeed\""
                   ],
                   "subInstructions": []
                 }
@@ -4106,9 +4261,9 @@
             {
               "codeOnly": false,
               "defaultValue": "",
-              "description": "Enable slide speed",
+              "description": "Enable side speed",
               "longDescription": "",
-              "name": "EnableSlideSpeed",
+              "name": "EnableSideSpeed",
               "optional": false,
               "supplementaryInformation": "",
               "type": "yesorno"
@@ -5160,6 +5315,16 @@
         },
         {
           "value": "",
+          "type": "Boolean",
+          "label": "Keep sliding without holding a key",
+          "description": "",
+          "group": "Wall sliding",
+          "extraInformation": [],
+          "hidden": false,
+          "name": "AutomaticSliding"
+        },
+        {
+          "value": "",
           "type": "Number",
           "label": "",
           "description": "",
@@ -5904,6 +6069,40 @@
                 {
                   "disabled": false,
                   "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "PlatformBehavior::IsJumping"
+                      },
+                      "parameters": [
+                        "Object",
+                        "PlatformerCharacter"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::PlatformerConfigurationStack::RevertConfiguration"
+                      },
+                      "parameters": [
+                        "Object",
+                        "PlatformerConfigurationStack",
+                        "\"HorizontalDashGravity\"",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
                   "type": "BuiltinCommonInstructions::Comment",
                   "color": {
                     "b": 109,
@@ -6111,23 +6310,44 @@
                             ""
                           ],
                           "subInstructions": []
-                        },
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "AdvancedJump::PlatformerConfigurationStack::ConfigureGravity"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerConfigurationStack",
-                            "Object.Behavior::PropertyDashGravity()",
-                            "\"HorizontalDash\"",
-                            ""
-                          ],
-                          "subInstructions": []
                         }
                       ],
                       "events": [
+                        {
+                          "disabled": false,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::IsJumping"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "AdvancedJump::PlatformerConfigurationStack::ConfigureGravity"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerConfigurationStack",
+                                "Object.Behavior::PropertyDashGravity()",
+                                "\"HorizontalDashGravity\"",
+                                ""
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        },
                         {
                           "disabled": true,
                           "folded": false,
@@ -6470,7 +6690,7 @@
                     "Object",
                     "PlatformerConfigurationStack",
                     "Object.Behavior::PropertyDashSustainGravity()",
-                    "\"HorizontalDash\"",
+                    "\"HorizontalDashGravity\"",
                     ""
                   ],
                   "subInstructions": []
@@ -6738,6 +6958,19 @@
                     "Object",
                     "PlatformerConfigurationStack",
                     "\"HorizontalDash\"",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "AdvancedJump::PlatformerConfigurationStack::RevertConfiguration"
+                  },
+                  "parameters": [
+                    "Object",
+                    "PlatformerConfigurationStack",
+                    "\"HorizontalDashGravity\"",
                     ""
                   ],
                   "subInstructions": []
