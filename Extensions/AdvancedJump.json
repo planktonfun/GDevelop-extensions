@@ -2227,757 +2227,6 @@
             {
               "disabled": false,
               "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::PropertyIsWallJumping"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior"
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Comment",
-                  "color": {
-                    "b": 109,
-                    "g": 230,
-                    "r": 255,
-                    "textB": 0,
-                    "textG": 0,
-                    "textR": 0
-                  },
-                  "comment": "Reset default character configuration when the character change of direction or start to fall.",
-                  "comment2": ""
-                },
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "BuiltinCommonInstructions::Or"
-                      },
-                      "parameters": [],
-                      "subInstructions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "PlatformBehavior::IsFalling"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter"
-                          ],
-                          "subInstructions": []
-                        },
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "BuiltinCommonInstructions::And"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "inverted": false,
-                                "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
-                              },
-                              "parameters": [
-                                "Object",
-                                "Behavior"
-                              ],
-                              "subInstructions": []
-                            },
-                            {
-                              "type": {
-                                "inverted": false,
-                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                              },
-                              "parameters": [
-                                "Object",
-                                "PlatformerCharacter",
-                                "\"Left\""
-                              ],
-                              "subInstructions": []
-                            }
-                          ]
-                        },
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "BuiltinCommonInstructions::And"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "inverted": true,
-                                "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
-                              },
-                              "parameters": [
-                                "Object",
-                                "Behavior"
-                              ],
-                              "subInstructions": []
-                            },
-                            {
-                              "type": {
-                                "inverted": false,
-                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                              },
-                              "parameters": [
-                                "Object",
-                                "PlatformerCharacter",
-                                "\"Right\""
-                              ],
-                              "subInstructions": []
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SetPropertyIsWallJumping"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "no"
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::ToggleSideSpeed"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "",
-                        ""
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "events": []
-                }
-              ]
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::SetPropertyHasJustWallJump"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "no"
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "events": []
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "When the character tries to move but can't actually move, it's against a wall.",
-              "comment2": ""
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::SetPropertyIsAgainstWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "no"
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "events": []
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::PropertyPreviousX"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "=",
-                    "Object.X()"
-                  ],
-                  "subInstructions": []
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "BuiltinCommonInstructions::And"
-                      },
-                      "parameters": [],
-                      "subInstructions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter",
-                            "\"Left\""
-                          ],
-                          "subInstructions": []
-                        },
-                        {
-                          "type": {
-                            "inverted": true,
-                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter",
-                            "\"Right\""
-                          ],
-                          "subInstructions": []
-                        }
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "BuiltinCommonInstructions::And"
-                      },
-                      "parameters": [],
-                      "subInstructions": [
-                        {
-                          "type": {
-                            "inverted": true,
-                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter",
-                            "\"Left\""
-                          ],
-                          "subInstructions": []
-                        },
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter",
-                            "\"Right\""
-                          ],
-                          "subInstructions": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::SetPropertyIsAgainstWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "yes"
-                  ],
-                  "subInstructions": []
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::RememberIsAgainstWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    ""
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "events": [
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                      },
-                      "parameters": [
-                        "Object",
-                        "PlatformerCharacter",
-                        "\"Left\""
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SetPropertyIsJumpingLeft"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        ""
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "events": []
-                },
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                      },
-                      "parameters": [
-                        "Object",
-                        "PlatformerCharacter",
-                        "\"Right\""
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SetPropertyIsJumpingLeft"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "yes"
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "events": []
-                }
-              ]
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior"
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::WasAgainstWall"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "Object.Behavior::PropertyJumpTimeFrame()",
-                        ""
-                      ],
-                      "subInstructions": []
-                    }
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Comment",
-                  "color": {
-                    "b": 109,
-                    "g": 230,
-                    "r": 255,
-                    "textB": 0,
-                    "textG": 0,
-                    "textR": 0
-                  },
-                  "comment": "To be permissive, when the jump key was pressed right before the character touch the wall,\nit is still detected as a wall jump which reset the air jump counter.",
-                  "comment2": ""
-                },
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::WasJumpKeyPressed"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "Object.Behavior::PropertyJumpTimeFrame()",
-                        "\"Jump\"",
-                        ""
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::ForgetJumpKeyPressed"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "\"Jump\"",
-                        ""
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "PlatformBehavior::SetCanJump"
-                      },
-                      "parameters": [
-                        "Object",
-                        "PlatformerCharacter"
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SetPropertyIsWallJumping"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "yes"
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::ToggleSideSpeed"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "yes",
-                        ""
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::ForgetIsAgainstWall"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        ""
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SetPropertyHasJustWallJump"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "yes"
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "events": [
-                    {
-                      "disabled": false,
-                      "folded": false,
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
-                          },
-                          "parameters": [
-                            "Object",
-                            "Behavior"
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter",
-                            "=",
-                            "-Object.Behavior::PropertyWallJumpSpeedX()"
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "events": []
-                    },
-                    {
-                      "disabled": false,
-                      "folded": false,
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "inverted": true,
-                            "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
-                          },
-                          "parameters": [
-                            "Object",
-                            "Behavior"
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter",
-                            "=",
-                            "Object.Behavior::PropertyWallJumpSpeedX()"
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "events": []
-                    },
-                    {
-                      "disabled": true,
-                      "folded": false,
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "DebuggerTools::ConsoleLog"
-                          },
-                          "parameters": [
-                            "\"Wall jump\"",
-                            "\"info\"",
-                            "\"WallJump\""
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "events": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior"
-                  ],
-                  "subInstructions": []
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                      },
-                      "parameters": [
-                        "Object",
-                        "PlatformerCharacter",
-                        "\"Left\""
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
-                      },
-                      "parameters": [
-                        "Object",
-                        "PlatformerCharacter",
-                        "\"Right\""
-                      ],
-                      "subInstructions": []
-                    }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::SetPropertyMovedAwayFromTheWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "yes"
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "events": []
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Save the previous position for the wall detection.",
-              "comment2": ""
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::SetPropertyPreviousX"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "=",
-                    "Object.X()"
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "events": []
-            },
-            {
-              "disabled": false,
-              "folded": false,
               "type": "BuiltinCommonInstructions::Comment",
               "color": {
                 "b": 109,
@@ -3065,49 +2314,15 @@
               "events": []
             },
             {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
               "disabled": false,
               "folded": false,
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Wall sliding",
-              "comment2": ""
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior"
-                  ],
-                  "subInstructions": []
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "PlatformBehavior::IsFalling"
-                  },
-                  "parameters": [
-                    "Object",
-                    "PlatformerCharacter"
-                  ],
-                  "subInstructions": []
-                }
-              ],
-              "actions": [],
+              "name": "Wall jump end",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
               "events": [
                 {
                   "disabled": false,
@@ -3117,107 +2332,6 @@
                     {
                       "type": {
                         "inverted": false,
-                        "value": "AdvancedJump::WallJump::PropertyMovedAwayFromTheWall"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior"
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::AbsorbFallingSpeed"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "Object.Behavior::PropertyWallSlidingSpeedAbsorption()",
-                        ""
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SetPropertyMovedAwayFromTheWall"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "no"
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "events": [
-                    {
-                      "disabled": true,
-                      "folded": false,
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "DebuggerTools::ConsoleLog"
-                          },
-                          "parameters": [
-                            "\"Absob speed\"",
-                            "\"info\"",
-                            "\"WallJump\""
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "events": []
-                    }
-                  ]
-                },
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::SlideOnWall"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "yes",
-                        ""
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
-                  "events": []
-                },
-                {
-                  "disabled": false,
-                  "folded": false,
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "AdvancedJump::WallJump::PropertyAutomaticSliding"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior"
-                      ],
-                      "subInstructions": []
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
                         "value": "AdvancedJump::WallJump::PropertyIsWallJumping"
                       },
                       "parameters": [
@@ -3232,6 +2346,313 @@
                     {
                       "disabled": false,
                       "folded": false,
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Reset default character configuration when the character change of direction or start to fall.",
+                      "comment2": ""
+                    },
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::IsFalling"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter"
+                              ],
+                              "subInstructions": []
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "Behavior"
+                                  ],
+                                  "subInstructions": []
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "PlatformerCharacter",
+                                    "\"Left\""
+                                  ],
+                                  "subInstructions": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "inverted": true,
+                                    "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "Behavior"
+                                  ],
+                                  "subInstructions": []
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "PlatformerCharacter",
+                                    "\"Right\""
+                                  ],
+                                  "subInstructions": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::SetPropertyIsWallJumping"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "no"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::ToggleSideSpeed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "",
+                            ""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "disabled": false,
+              "folded": false,
+              "name": "Wall detection",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "When the character tries to move but can't actually move, it's against a wall.",
+                  "comment2": ""
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::SetPropertyIsAgainstWall"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "no"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::PropertyPreviousX"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "=",
+                        "Object.X()"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::Or"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::And"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Left\""
+                              ],
+                              "subInstructions": []
+                            },
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Right\""
+                              ],
+                              "subInstructions": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::And"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Left\""
+                              ],
+                              "subInstructions": []
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Right\""
+                              ],
+                              "subInstructions": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::SetPropertyIsAgainstWall"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "yes"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::RememberIsAgainstWall"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": [
+                    {
+                      "disabled": false,
+                      "folded": false,
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
                         {
@@ -3245,10 +2666,32 @@
                             "\"Left\""
                           ],
                           "subInstructions": []
-                        },
+                        }
+                      ],
+                      "actions": [
                         {
                           "type": {
-                            "inverted": true,
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::SetPropertyIsJumpingLeft"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            ""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    },
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
                             "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
                           },
                           "parameters": [
@@ -3263,11 +2706,422 @@
                         {
                           "type": {
                             "inverted": false,
-                            "value": "PlatformBehavior::SimulateLeftKey"
+                            "value": "AdvancedJump::WallJump::SetPropertyIsJumpingLeft"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "yes"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    }
+                  ]
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Save the previous position for the wall detection.",
+                  "comment2": ""
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::SetPropertyPreviousX"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "=",
+                        "Object.X()"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "disabled": false,
+              "folded": false,
+              "name": "Wall jump",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::SetPropertyHasJustWallJump"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "no"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::Or"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::WasAgainstWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "Object.Behavior::PropertyJumpTimeFrame()",
+                            ""
+                          ],
+                          "subInstructions": []
+                        }
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "To be permissive, when the jump key was pressed right before the character touch the wall,\nit is still detected as a wall jump which reset the air jump counter.",
+                      "comment2": ""
+                    },
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::WasJumpKeyPressed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "Object.Behavior::PropertyJumpTimeFrame()",
+                            "\"Jump\"",
+                            ""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::ForgetJumpKeyPressed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "\"Jump\"",
+                            ""
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::SetCanJump"
                           },
                           "parameters": [
                             "Object",
                             "PlatformerCharacter"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::SetPropertyIsWallJumping"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "yes"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::ToggleSideSpeed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "yes",
+                            ""
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::ForgetIsAgainstWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            ""
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::SetPropertyHasJustWallJump"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "yes"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "ResetObjectTimer"
+                          },
+                          "parameters": [
+                            "Object",
+                            "\"__WallJump_TimeFromJumpStart\""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": [
+                        {
+                          "disabled": false,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
+                              },
+                              "parameters": [
+                                "Object",
+                                "Behavior"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "=",
+                                "-Object.Behavior::PropertyWallJumpSpeedX()"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        },
+                        {
+                          "disabled": false,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
+                              },
+                              "parameters": [
+                                "Object",
+                                "Behavior"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "=",
+                                "Object.Behavior::PropertyWallJumpSpeedX()"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        },
+                        {
+                          "disabled": true,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "DebuggerTools::ConsoleLog"
+                              },
+                              "parameters": [
+                                "\"Wall jump\"",
+                                "\"info\"",
+                                "\"WallJump\""
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "disabled": false,
+              "folded": false,
+              "name": "Sustain jump speed",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::PropertyIsWallJumping"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "CompareObjectTimer"
+                      },
+                      "parameters": [
+                        "Object",
+                        "\"__WallJump_TimeFromJumpStart\"",
+                        "<=",
+                        "Object.Behavior::PropertySideSpeedSustainTime()"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "=",
+                            "-Object.Behavior::PropertyWallJumpSpeedX()"
                           ],
                           "subInstructions": []
                         }
@@ -3282,6 +3136,74 @@
                         {
                           "type": {
                             "inverted": true,
+                            "value": "AdvancedJump::WallJump::PropertyIsJumpingLeft"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "=",
+                            "Object.Behavior::PropertyWallJumpSpeedX()"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "disabled": false,
+              "folded": false,
+              "name": "Wall sliding",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::Or"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
                             "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
                           },
                           "parameters": [
@@ -3303,41 +3225,33 @@
                           ],
                           "subInstructions": []
                         }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "PlatformBehavior::SimulateRightKey"
-                          },
-                          "parameters": [
-                            "Object",
-                            "PlatformerCharacter"
-                          ],
-                          "subInstructions": []
-                        }
-                      ],
-                      "events": []
+                      ]
                     }
-                  ]
-                }
-              ]
-            },
-            {
-              "disabled": false,
-              "folded": false,
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
+                  ],
+                  "actions": [
                     {
                       "type": {
-                        "inverted": true,
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::SetPropertyMovedAwayFromTheWall"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "yes"
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
                         "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
                       },
                       "parameters": [
@@ -3348,7 +3262,7 @@
                     },
                     {
                       "type": {
-                        "inverted": true,
+                        "inverted": false,
                         "value": "PlatformBehavior::IsFalling"
                       },
                       "parameters": [
@@ -3357,25 +3271,279 @@
                       ],
                       "subInstructions": []
                     }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "AdvancedJump::WallJump::SlideOnWall"
-                  },
-                  "parameters": [
-                    "Object",
-                    "Behavior",
-                    "no",
-                    ""
                   ],
-                  "subInstructions": []
+                  "actions": [],
+                  "events": [
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::PropertyMovedAwayFromTheWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::AbsorbFallingSpeed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "Object.Behavior::PropertyWallSlidingSpeedAbsorption()",
+                            ""
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::SetPropertyMovedAwayFromTheWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "no"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": [
+                        {
+                          "disabled": true,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "DebuggerTools::ConsoleLog"
+                              },
+                              "parameters": [
+                                "\"Absob speed\"",
+                                "\"info\"",
+                                "\"WallJump\""
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        }
+                      ]
+                    },
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::SlideOnWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior",
+                            "yes",
+                            ""
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "events": []
+                    },
+                    {
+                      "disabled": false,
+                      "folded": false,
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "AdvancedJump::WallJump::PropertyAutomaticSliding"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "AdvancedJump::WallJump::PropertyIsWallJumping"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        }
+                      ],
+                      "actions": [],
+                      "events": [
+                        {
+                          "disabled": false,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Left\""
+                              ],
+                              "subInstructions": []
+                            },
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Right\""
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::SimulateLeftKey"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        },
+                        {
+                          "disabled": false,
+                          "folded": false,
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Left\""
+                              ],
+                              "subInstructions": []
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Right\""
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "PlatformBehavior::SimulateRightKey"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter"
+                              ],
+                              "subInstructions": []
+                            }
+                          ],
+                          "events": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::Or"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "AdvancedJump::WallJump::PropertyIsAgainstWall"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Behavior"
+                          ],
+                          "subInstructions": []
+                        },
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "PlatformBehavior::IsFalling"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter"
+                          ],
+                          "subInstructions": []
+                        }
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "AdvancedJump::WallJump::SlideOnWall"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "no",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
                 }
               ],
-              "events": []
+              "parameters": []
             }
           ],
           "parameters": [
@@ -5272,6 +5440,16 @@
           "extraInformation": [],
           "hidden": false,
           "name": "WallJumpAccelerationX"
+        },
+        {
+          "value": "0.2",
+          "type": "Number",
+          "label": "Side speed sustain time",
+          "description": "",
+          "group": "Wall jump",
+          "extraInformation": [],
+          "hidden": false,
+          "name": "SideSpeedSustainTime"
         },
         {
           "value": "500",
